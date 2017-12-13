@@ -13,6 +13,7 @@
 		D9940A361FDFDB5D004CBBB4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9940A351FDFDB5D004CBBB4 /* Assets.xcassets */; };
 		D9940A391FDFDB5D004CBBB4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9940A371FDFDB5D004CBBB4 /* LaunchScreen.storyboard */; };
 		D9940A3C1FDFDB5D004CBBB4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D9940A3B1FDFDB5D004CBBB4 /* main.m */; };
+		D9940A451FDFDC24004CBBB4 /* TwoSidedView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9940A441FDFDC24004CBBB4 /* TwoSidedView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		D9940A381FDFDB5D004CBBB4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D9940A3A1FDFDB5D004CBBB4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D9940A3B1FDFDB5D004CBBB4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D9940A431FDFDC24004CBBB4 /* TwoSidedView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TwoSidedView.h; sourceTree = "<group>"; };
+		D9940A441FDFDC24004CBBB4 /* TwoSidedView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TwoSidedView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +61,7 @@
 		D9940A2B1FDFDB5D004CBBB4 /* TwoSidedView */ = {
 			isa = PBXGroup;
 			children = (
+				D9940A421FDFDB83004CBBB4 /* TwoSidedView */,
 				D9940A2C1FDFDB5D004CBBB4 /* AppDelegate.h */,
 				D9940A2D1FDFDB5D004CBBB4 /* AppDelegate.m */,
 				D9940A2F1FDFDB5D004CBBB4 /* ViewController.h */,
@@ -67,6 +71,15 @@
 				D9940A371FDFDB5D004CBBB4 /* LaunchScreen.storyboard */,
 				D9940A3A1FDFDB5D004CBBB4 /* Info.plist */,
 				D9940A3B1FDFDB5D004CBBB4 /* main.m */,
+			);
+			path = TwoSidedView;
+			sourceTree = "<group>";
+		};
+		D9940A421FDFDB83004CBBB4 /* TwoSidedView */ = {
+			isa = PBXGroup;
+			children = (
+				D9940A431FDFDC24004CBBB4 /* TwoSidedView.h */,
+				D9940A441FDFDC24004CBBB4 /* TwoSidedView.m */,
 			);
 			path = TwoSidedView;
 			sourceTree = "<group>";
@@ -102,7 +115,7 @@
 				TargetAttributes = {
 					D9940A281FDFDB5D004CBBB4 = {
 						CreatedOnToolsVersion = 9.0;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -145,6 +158,7 @@
 				D9940A311FDFDB5D004CBBB4 /* ViewController.m in Sources */,
 				D9940A3C1FDFDB5D004CBBB4 /* main.m in Sources */,
 				D9940A2E1FDFDB5D004CBBB4 /* AppDelegate.m in Sources */,
+				D9940A451FDFDC24004CBBB4 /* TwoSidedView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,12 +292,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4J5JWPJ294;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = TwoSidedView/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = KuaiJianKang.TwoSidedView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -292,12 +308,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4J5JWPJ294;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = TwoSidedView/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = KuaiJianKang.TwoSidedView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

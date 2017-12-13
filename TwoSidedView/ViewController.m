@@ -7,8 +7,11 @@
 //
 
 #import "ViewController.h"
+#import "TwoSidedView.h"
 
 @interface ViewController ()
+
+@property (nonatomic, strong) TwoSidedView *twoSidedView;
 
 @end
 
@@ -17,13 +20,26 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    self.view.backgroundColor = [UIColor grayColor];
+    
+    self.twoSidedView = [[TwoSidedView alloc] initWithFrame:CGRectMake(90, 90, 90, 90)];
+    [self.view addSubview:self.twoSidedView];
+    
+    UIImageView *topImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"funny"]];
+    topImageView.frame =self.twoSidedView.bounds;
+    
+    UIImageView *bottomImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"nice"]];
+    bottomImageView.frame = self.twoSidedView.bounds;
+    
+    // 设置topView
+    self.twoSidedView.topView    = topImageView;
+    // 设置bottomView
+    self.twoSidedView.bottomView = bottomImageView;
 }
 
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [self.twoSidedView turnWithDuration:2 completion:nil];
 }
-
 
 @end
