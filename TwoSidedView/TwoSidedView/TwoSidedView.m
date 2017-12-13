@@ -12,11 +12,6 @@
 
 /** 设置顶部view */
 - (void)setTopView:(UIView *)topView {
-    if (_topView) {
-        [_topView removeFromSuperview];
-        _topView = nil;
-    }
-    
     _topView = topView;
     
     [self addSubview:topView];
@@ -25,11 +20,6 @@
 
 /** 设置底部view */
 - (void)setBottomView:(UIView *)bottomView {
-    if (_bottomView) {
-        [_bottomView removeFromSuperview];
-        _bottomView = nil;
-    }
-    
     _bottomView = bottomView;
     
     [self addSubview:_bottomView];
