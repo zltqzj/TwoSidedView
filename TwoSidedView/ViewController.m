@@ -23,7 +23,8 @@
     
     self.view.backgroundColor = [UIColor grayColor];
     
-    self.twoSidedView = [[TwoSidedView alloc] initWithFrame:CGRectMake(90, 90, 90, 90)];
+    self.twoSidedView = [[TwoSidedView alloc] initWithFrame:CGRectMake(90, 90, 200, 200)];
+    self.twoSidedView.center = self.view.center;
     [self.view addSubview:self.twoSidedView];
     
     UIImageView *topImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"funny"]];
@@ -39,7 +40,9 @@
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    [self.twoSidedView turnWithDuration:2 completion:nil];
+    [self.twoSidedView turnWithDuration:2 completion:^{
+        NSLog(@"翻转完成");
+    }];
 }
 
 @end
