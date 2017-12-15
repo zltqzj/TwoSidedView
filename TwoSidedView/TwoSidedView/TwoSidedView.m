@@ -9,14 +9,14 @@
 #import "TwoSidedView.h"
 
 @implementation TwoSidedView {
-    BOOL _isTurning; // 是否正在翻转
-    CGFloat _angle;  // 翻转角度
+    BOOL _isTurning;  // 是否正在翻转
+    BOOL _isReversed; // 是否反面朝上
 }
 
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
-        _isTurning = NO;
-        _angle = 0;
+        _isTurning  = NO;
+        _isReversed = NO;
     }
     return self;
 }
@@ -35,12 +35,6 @@
     
     [self addSubview:_bottomView];
     [self sendSubviewToBack:_bottomView];
-    
-    _bottomView.hidden = YES; // 默认隐藏
-    
-    // 翻转180度
-    CATransform3D transform = CATransform3DMakeRotation(M_PI, 0, 1, 0);
-    _bottomView.layer.transform = transform;
 }
 
 /**
@@ -58,25 +52,24 @@
     if (_isTurning) {
         return;
     }
+    
     _isTurning = YES;
     
-    // 动画进行到一半的时候切换要展示的view
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(duration / 2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        self.topView.hidden    = !self.topView.hidden;
-        self.bottomView.hidden = !self.bottomView.hidden;
-    });
-    
-    // 在之前的基础上翻转180度
-    _angle += M_PI;
-    [UIView animateWithDuration:duration animations:^{
-        CATransform3D transform = CATransform3DMakeRotation(_angle, 0, 1, 0);
-        self.layer.transform = transform;
-    } completion:^(BOOL finished) {
-        _isTurning = NO;
-        if (completion) {
-            completion();
-        }
-    }];
+    if (_isReversed) { // 此时反面朝上
+        // 从反面翻转到正面
+        [UIView transitionFromView:self.bottomView toView:self.topView duration:duration options:UIViewAnimationOptionTransitionFlipFromLeft completion:^(BOOL finished) {
+            !completion ?: completion();
+            _isTurning  = NO;
+            _isReversed = NO;
+        }];
+    } else { // 此时正面朝上
+        // 从正面翻转到反面
+        [UIView transitionFromView:self.topView toView:self.bottomView duration:duration options:UIViewAnimationOptionTransitionFlipFromRight completion:^(BOOL finished) {
+            !completion ?: completion();
+            _isTurning  = NO;
+            _isReversed = YES;
+        }];
+    }
 }
 
 @end
